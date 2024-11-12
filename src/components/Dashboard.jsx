@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import MainContent from './MainContent';
+import TodayPlan from './TodayPlan';
 
 const Dashboard = () => {
     return (
@@ -9,9 +10,9 @@ const Dashboard = () => {
             <Sidebar />
             <div className="bg-yellow-50 flex-col ">
                 <Header />
-                <MainContent />
+                {/* <MainContent /> */}
+                <TodayPlan />
             </div>
-
         </div>
     );
 }
