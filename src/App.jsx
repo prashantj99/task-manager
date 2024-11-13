@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { initializeDummyTask } from './utils/storage';
 import ThisWeekTasks from './components/ThisWeekTasks';
 import Archives from './components/Archives';
+import CompletedTasks from './components/CompletedTasks';
 
 const App = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/' element={<TodayPlan />} />
           <Route path='/overdue' element={<OverdueTasks />} />
           <Route path='/upcomming' element={<UpcomingTasks />} />
+          <Route path='/completed' element={<CompletedTasks />} />
           <Route path='/trash' element={<Trash />} />
           <Route path='/thisweek' element={<ThisWeekTasks />} />
           <Route path='/archives' element={<Archives />} />

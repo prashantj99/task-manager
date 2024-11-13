@@ -78,6 +78,17 @@ const TaskModal = ({ task, onSave, onClose }) => {
                     <option value="3">Low</option>
                 </select>
 
+                <select
+                    name="status"
+                    value={updatedTask.status}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-none px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-green-500"
+                >
+                    <option value="0">UnDone</option>
+                    <option value="1">Completed</option>
+                    <option value="-1">Trash</option>
+                </select>
+
                 <div className="flex justify-end space-x-4">
                     <button
                         onClick={handleSave}

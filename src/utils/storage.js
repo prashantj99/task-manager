@@ -32,11 +32,22 @@ export const updateTask = (updatedTask) => {
     saveTasks(tasks);
 };
 
+
 // Deletes a task by ID
 export const moveToTrash = (taskId) => {
     const tasks = getTasks().map((task)=>{
         if(task.id === taskId){
             return {...task, status: -1};
+        }
+        return task;
+    });
+    saveTasks(tasks);
+};
+
+export const markDone = (taskId) => {
+    const tasks = getTasks().map((task)=>{
+        if(task.id === taskId){
+            return {...task, status: 1};
         }
         return task;
     });

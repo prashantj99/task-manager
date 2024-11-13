@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatDistanceToNow } from 'date-fns';
 
-const TaskCard = ({ task, onDelete, onEdit, isTrash = false }) => {
+const TaskCard = ({ task, onDelete, onEdit }) => {
     const overdueClass = task.dueDate < new Date().toISOString() ? "text-red-500 font-bold" : "text-yellow-500";
 
     return (
@@ -10,12 +10,12 @@ const TaskCard = ({ task, onDelete, onEdit, isTrash = false }) => {
                 <div className="text-xl font-bold text-gray-800">{task.title}</div>
                 <div className={`text-xs ${overdueClass}`}>{task.dueDate < new Date().toISOString() ? "Overdue" : "Due Soon"}</div>
                 <div className="mt-4 flex space-x-4">
-                    {!isTrash && <button
+                    <button
                         onClick={() => onEdit(task)}
                         className="w-16 h-8 bg-blue-500 text-white rounded hover:bg-blue-600 flex items-center justify-center"
                     >
                         ✏️
-                    </button>}
+                    </button>
                     <button
                         onClick={() => onDelete(task.id)}
                         className="w-16 h-8 bg-red-500 text-white rounded hover:bg-red-600 flex items-center justify-center"

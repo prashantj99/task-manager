@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import navigationItems from '../utils/navigations';
 
 const Sidebar = () => {
+  const location = useLocation();
   return (
     <aside className="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60">
       <div className="flex flex-col justify-between h-full">
@@ -17,17 +18,20 @@ const Sidebar = () => {
         {/* Navigation Menu */}
         <nav className="p-4 flex-grow">
           <ul className="space-y-1">
-            {navigationItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={item.href}
-                  className={`flex items-center py-3 px-4 rounded-xl font-bold text-sm ${item.classNames}`}
-                >
-                  <img src={item.icon} alt={`${item.name} icon`} className="mr-4 w-5 h-5" />
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            {navigationItems.map((item, index) => {
+              const isActive = location.pathname === item.href;
+              return (
+                <li key={index}>
+                  <Link
+                    to={item.href}
+                    className={`flex items-center py-3 px-4 rounded-xl font-bold text-sm ${item.classNames} ${isActive ? 'bg-yellow-200 text-yellow-700' : ''}`}  
+                  >
+                    <img src={item.icon} alt={`${item.name} icon`} className="mr-4 w-5 h-5" />
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

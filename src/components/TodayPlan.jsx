@@ -6,25 +6,23 @@ import TaskSearchFilter from './TaskSearchFilter';
 
 const TodayPlan = () => {
 
+    const today = new Date();
     const [todayTasks, setTodayTasks] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const today = new Date().toISOString().split('T')[0];
     const [tasksFinished, setTasksFinished] = useState(0);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const refreshTasks = () => {
-        const tasks = getTasks(); // Assuming getTasks fetches all tasks
+        const tasks = getTasks();
         console.log(tasks);
         setTasksFinished(tasks.filter(task => task.status === 1).length);
         setTodayTasks(tasks.filter(task => {
-            const taskDueDate = task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : '';
-            return taskDueDate === today && task.status === 0;
+            return task.dueDate.split('T')[0] === today.toISOString().split('T')[0] && task.status === 0;
         }));
     };
 
-
     useEffect(() => {
-        refreshTasks(); // Load today's tasks on initial render
+        refreshTasks();
     }, []);
 
     // Toggle modal visibility
@@ -67,7 +65,7 @@ const TodayPlan = () => {
                                     className="inline-flex items-center justify-center h-9 px-5 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
                                     Search & Filter
                                 </button>
-                                {isFilterOpen && <TaskSearchFilter setIsFilterOpen={setIsFilterOpen}/>}
+                                {isFilterOpen && <TaskSearchFilter setIsFilterOpen={setIsFilterOpen} />}
                             </div>
                         </div>
                         <hr className="my-10" />
