@@ -9,11 +9,11 @@ const navigationItems = [
   {
     name: 'Plan',
     icon: PlanIcon,
-    href: '/',
+    href: '#',
     classNames: 'bg-yellow-200 text-yellow-900',
   },
   {
-    name: 'Task List',
+    name: 'Today\'s',
     icon: TaskListIcon,
     href: '/',
     classNames: 'text-gray-900 hover:bg-yellow-50',

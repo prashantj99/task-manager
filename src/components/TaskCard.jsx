@@ -5,7 +5,7 @@ const TaskCard = ({ task, onDelete, onEdit, isTrash = false }) => {
     const overdueClass = task.dueDate < new Date().toISOString() ? "text-red-500 font-bold" : "text-yellow-500";
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition">
+        <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition m-2">
             <div className="flex justify-between items-center mb-1">
                 <div className="text-xl font-bold text-gray-800">{task.title}</div>
                 <div className={`text-xs ${overdueClass}`}>{task.dueDate < new Date().toISOString() ? "Overdue" : "Due Soon"}</div>

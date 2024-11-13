@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getTasks, addTask } from '../utils/storage';
 import TaskModal from './TaskModal';
 import TodayTasks from './TodayTasks';
+import TaskSearchFilter from './TaskSearchFilter';
 
 const TodayPlan = () => {
 
@@ -9,6 +10,7 @@ const TodayPlan = () => {
     const [showModal, setShowModal] = useState(false);
     const today = new Date().toISOString().split('T')[0];
     const [tasksFinished, setTasksFinished] = useState(0);
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const refreshTasks = () => {
         const tasks = getTasks(); // Assuming getTasks fetches all tasks
@@ -33,7 +35,6 @@ const TodayPlan = () => {
         addTask(newTask);
         refreshTasks();
     };
-
 
     return (
         <main className="pt-16 max-h-screen overflow-auto">
@@ -60,9 +61,13 @@ const TodayPlan = () => {
                                         <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
                                     </svg>
                                 </button>
-                                <button type="button" className="inline-flex items-center justify-center h-9 px-5 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
-                                    Track your task form now!!!
+                                <button
+                                    type="button"
+                                    onClick={() => setIsFilterOpen(!isFilterOpen)}
+                                    className="inline-flex items-center justify-center h-9 px-5 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
+                                    Search & Filter
                                 </button>
+                                {isFilterOpen && <TaskSearchFilter setIsFilterOpen={setIsFilterOpen}/>}
                             </div>
                         </div>
                         <hr className="my-10" />
