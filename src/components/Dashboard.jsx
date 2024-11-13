@@ -1,17 +1,17 @@
 import React from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import MainContent from './MainContent';
-import TodayPlan from './TodayPlan';
+import { Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
         <div className='relative bg-yellow-50 overflow-hidden max-h-screen'>
             <Sidebar />
-            <div className="bg-yellow-50 flex-col ">
+            <div className="bg-yellow-50 flex-col ml-60">
                 <Header />
-                {/* <MainContent /> */}
-                <TodayPlan />
+                <div className=''>
+                    <Outlet/>
+                </div>
             </div>
         </div>
     );
