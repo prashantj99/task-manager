@@ -4,17 +4,12 @@ import { getTasks } from '../utils/storage';
 
 const Archives = () => {
     const [archivedTasks, setArchivedTasks] = useState([]);
-    const [tasks, setTasks] = useState([]);
-
+    
     const refreshTasks = () => {
         const tasks = getTasks();
         const archived = tasks.filter(task => task.status === 1);
         setArchivedTasks(archived);
     };
-
-    useEffect(() => {
-        refreshTasks();
-    }, []);
 
     useEffect(() => {
         refreshTasks();
