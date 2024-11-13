@@ -3,13 +3,12 @@ import { formatDistanceToNow } from 'date-fns';
 import { markDone } from '../utils/storage';
 
 const TodayTasks = ({ todayTasks }) => {
+
     return (
         <>
             {todayTasks.length > 0 ? (
                 todayTasks
-                    .filter(task => task.status === 0)
                     .sort((task1, task2) => {
-                        // Parse the dueDate to Date objects to compare deadlines
                         const dueDate1 = new Date(task1.dueDate);
                         const dueDate2 = new Date(task2.dueDate);
 

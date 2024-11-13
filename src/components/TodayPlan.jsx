@@ -14,10 +14,9 @@ const TodayPlan = () => {
 
     const refreshTasks = () => {
         const tasks = getTasks();
-        console.log(tasks);
-        setTasksFinished(tasks.filter(task => task.status === 1).length);
+        setTasksFinished(tasks.filter(task => Number(task.status) === 1).length);
         setTodayTasks(tasks.filter(task => {
-            return task.dueDate.split('T')[0] === today.toISOString().split('T')[0] && task.status === 0;
+            return new Date(task.dueDate).toDateString() === new Date().toDateString() && Number(task.status) === 0;
         }));
     };
 

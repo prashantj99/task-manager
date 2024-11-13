@@ -6,7 +6,7 @@ const TaskModal = ({ task, onSave, onClose }) => {
         dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : '',
         dueTime: task.dueDate ? new Date(task.dueDate).toISOString().split('T')[1].slice(0, 5) : '',
     });
-
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUpdatedTask(prev => ({ ...prev, [name]: value }));

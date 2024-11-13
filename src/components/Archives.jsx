@@ -4,10 +4,10 @@ import { getTasks } from '../utils/storage';
 
 const Archives = () => {
     const [archivedTasks, setArchivedTasks] = useState([]);
-    
+
     const refreshTasks = () => {
         const tasks = getTasks();
-        const archived = tasks.filter(task => task.status === 1);
+        const archived = tasks.filter(task => Number(task.status) === 1);
         setArchivedTasks(archived);
     };
 
