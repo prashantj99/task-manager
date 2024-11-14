@@ -8,7 +8,6 @@ export const getTasks = () => {
         return [];
     }
 };
-
 // Saves tasks to localStorage
 export const saveTasks = (tasks) => {
     try {

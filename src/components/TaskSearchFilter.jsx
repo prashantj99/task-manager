@@ -9,6 +9,10 @@ const TaskSearchFilter = ({ setIsFilterOpen }) => {
     const [statusFilter, setStatusFilter] = useState('');
     const [filteredTasks, setFilteredTasks] = useState([]);
 
+    const refreshTasks = () => {
+        setTasks(tasks);
+    }
+
     useEffect(() => {
         setTasks(getTasks());
     }, []);
@@ -75,7 +79,7 @@ const TaskSearchFilter = ({ setIsFilterOpen }) => {
                 {/* Filtered Task Results */}
                 <div className="mt-4 mb-4 border-t border-gray-200 pt-4">
                     {filteredTasks.length > 0 ? (
-                        <TaskList tasks={filteredTasks} />
+                        <TaskList tasks={filteredTasks} refreshTasks={refreshTasks}/>
                     ) : (
                         <p className="text-gray-500 text-center">No tasks match your search.</p>
                     )}
