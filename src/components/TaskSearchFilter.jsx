@@ -18,8 +18,8 @@ const TaskSearchFilter = ({ setIsFilterOpen }) => {
         const lowerSearchTerm = searchTerm.toLowerCase();
         const filtered = tasks.filter(task => {
             const matchesSearch = !searchTerm || task.title.toLowerCase().includes(lowerSearchTerm) || task.description.toLowerCase().includes(lowerSearchTerm);
-            const matchesPriority = !priorityFilter || task.priority === parseInt(priorityFilter);
-            const matchesStatus = statusFilter === '' || task.status === parseInt(statusFilter);
+            const matchesPriority = !priorityFilter || Number(task.priority) === parseInt(priorityFilter);
+            const matchesStatus = statusFilter === '' || Number(task.status) === parseInt(statusFilter);
             return matchesSearch && matchesPriority && matchesStatus;
         });
         setFilteredTasks(filtered);
@@ -67,7 +67,7 @@ const TaskSearchFilter = ({ setIsFilterOpen }) => {
                     className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
                 >
                     <option value="">All Statuses ❓</option>
-                    <option value="0">Overdue ⏰</option>
+                    <option value="0">Pending ⏰</option>
                     <option value="1">Completed ✅</option>
                     <option value="-1">Trashed 🚮</option>
                 </select>

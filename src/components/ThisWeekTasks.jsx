@@ -17,7 +17,7 @@ const ThisWeekTasks = () => {
 
         const filteredTasks = tasks.filter(task => {
             const taskDueDate = new Date(task.dueDate);
-            return taskDueDate >= startOfWeek && taskDueDate <= endOfWeek;
+            return taskDueDate >= startOfWeek && taskDueDate <= endOfWeek && Number(task.status) === 0;
         });
 
         setWeeklyTasks(filteredTasks);
