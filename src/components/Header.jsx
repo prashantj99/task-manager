@@ -13,7 +13,7 @@ const Header = () => {
                     className="flex items-center text-gray-700 font-semibold hover:text-yellow-600 transition-all duration-300 transform hover:scale-105"
                 >
                     <span className="inline-flex items-center w-8 h-8 text-xs bg-white rounded-full mr-3 shadow-md hover:shadow-lg transition-all duration-200">
-                        <img src='/public/back-svgrepo-com.svg' alt='back' className='h-5 w-5' />
+                        <img src='/back-svgrepo-com.svg' alt='back' className='h-5 w-5' />
                     </span>
                     <span className="hidden sm:block">Archive</span>
                 </button>
@@ -28,7 +28,7 @@ const Header = () => {
                 >
                     <span className="hidden sm:block">This Week</span>
                     <span className="inline-flex items-center w-8 h-8 bg-white rounded-full ml-3 shadow-md hover:shadow-lg transition-all duration-200">
-                        <img src='/public/right-arrow-svgrepo-com.svg' alt='Right' className='h-5 w-5' />
+                        <img src='/right-arrow-svgrepo-com.svg' alt='Right' className='h-5 w-5' />
                     </span>
                 </button>
             </div>
