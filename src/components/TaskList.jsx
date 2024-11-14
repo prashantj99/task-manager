@@ -3,7 +3,7 @@ import TaskCard from './TaskCard';
 import TaskModal from './TaskModal';
 import { updateTask, moveToTrash } from '../utils/storage';
 
-const TaskList = ({ tasks, refreshTasks, handleClearTrash }) => {
+const TaskList = ({ tasks, refreshTasks, permanentDeleteTask }) => {
     const [selectedTask, setSelectedTask] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,7 +36,7 @@ const TaskList = ({ tasks, refreshTasks, handleClearTrash }) => {
                 <TaskCard
                     key={task.id}
                     task={task}
-                    onDelete={handleClearTrash || handleDelete}
+                    onDelete={permanentDeleteTask || handleDelete}
                     onEdit={handleEdit}
                 />
             )) : "No Task Found!!!"

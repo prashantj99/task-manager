@@ -106,7 +106,7 @@ const TodayPlan = () => {
                                 <h2 className="text-2xl font-bold mb-4">Your tasks today</h2>
 
                                 <div className="space-y-4">
-                                    <TodayTasks todayTasks={todayTasks} />
+                                    <TodayTasks todayTasks={todayTasks} refreshTasks={refreshTasks}/>
                                     {/* Conditionally render TaskModal */}
                                     {showModal && (
                                         <TaskModal

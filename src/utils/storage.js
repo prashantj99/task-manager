@@ -29,6 +29,8 @@ export const addTask = (task) => {
 // Updates an existing task
 export const updateTask = (updatedTask) => {
     const tasks = getTasks().map(task => (Number(task.id) === Number(updatedTask.id) ? updatedTask : task));
+    console.log(tasks);
+    
     saveTasks(tasks);
 };
 
@@ -44,6 +46,11 @@ export const moveToTrash = (taskId) => {
     saveTasks(tasks);
 };
 
+export const permanentDeleteTask = (taskId) => {
+    const tasks = getTasks().filter((task)=>Number(task.id) != Number(taskId));
+    saveTasks(tasks);
+};
+
 export const markDone = (taskId) => {
     const tasks = getTasks().map((task)=>{
         if(Number(task.id) === Number(taskId)){
@@ -53,8 +60,6 @@ export const markDone = (taskId) => {
     });
     saveTasks(tasks);
 };
-
-
 
 // Filters tasks by their status
 export const filterTasksByStatus = (status) => getTasks().filter(task => Number(task.status) === status);

@@ -2,7 +2,7 @@ import React from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import { markDone } from '../utils/storage';
 
-const TodayTasks = ({ todayTasks }) => {
+const TodayTasks = ({ todayTasks, refreshTasks }) => {
 
     return (
         <>
@@ -73,7 +73,10 @@ const TodayTasks = ({ todayTasks }) => {
                                 {
                                     task.status == 0 ?
                                         <button
-                                            onClick={() => markDone(task.id)}
+                                            onClick={() => {
+                                                markDone(task.id);
+                                                refreshTasks();
+                                            }}
                                             className="w-48 h-6 bg-green-500 text-white font-semibold rounded-full hover:bg-green-600">
                                             Mark as Done
                                         </button>
