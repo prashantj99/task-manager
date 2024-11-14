@@ -11,7 +11,6 @@ This task management application allows users to organize and manage their tasks
 - **Priority Levels**: Assign priority levels (High, Medium, Low) to tasks.
 - **Search & Filter**: Quickly search and filter tasks based on **title, priority and status**.
 - **Responsive Design**: The app supports both desktop and mobile views.
-- **Drag-and-Drop**: Move tasks between sections using drag-and-drop functionality.
 
 ## Setup Instructions
 
